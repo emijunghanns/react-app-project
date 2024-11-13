@@ -10,7 +10,7 @@ function App() {
     <div>
       <Navbar />
       <Sidebar />
-      <Homepage />
+      {/* <Homepage /> it does to repeat navar, sidebar and footer again*/}
       <Footer />
     </div>
   );

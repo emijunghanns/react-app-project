@@ -2,3 +2,21 @@
   margin: 0;
   padding: 0;
 }
+
+.navbar {
+  background-color: aqua;
+}
+
+.sidebar {
+  background-color: blueviolet;
+  width: 15%;
+  height: 100vh;
+  position: fixed;
+}
+
+.footer {
+  background-color: bisque;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
