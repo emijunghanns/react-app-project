@@ -16,11 +16,9 @@ import NotFound from "./pages/NotFound";
 function App() {
   const [recipeList, setRecipeList] = useState(recipesData);
 
-  // function addRecipe(recipe) {
-  //   const newRecipeList = [...recipeList];
-  //   newRecipeList.push(recipe);
-  //   setRecipeList(newRecipeList);
-  // }
+  function addRecipe(recipe) {
+    setRecipeList([...recipeList, recipe]);
+  }
 
   return (
     <div className="App">
@@ -30,7 +28,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage recipeList={recipeList} />} />
           <Route path="/details" element={<RecipeDetails />} />
-          <Route path="/addrecipe" element={<AddRecipe />} />
+          <Route
+            path="/addrecipe"
+            element={<AddRecipe addRecipe={addRecipe} />}
+          />
           <Route path="/aboutus" element={<AboutPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

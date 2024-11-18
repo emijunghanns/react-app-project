@@ -1,0 +1,59 @@
+.formBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0%;
+  padding: 0%;
+  height: 100vh;
+  width: 100vw;
+  font-size: 30px;
+  background-color: aqua;
+}
+
+/* .addRecipe { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+
+}  */
+
+input {
+  padding: 10px;
+  margin-top: 5px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addRecipeButton {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  font-size: 30px;
+}
+
+.backButton {
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  font-size: 30px;
+  margin-top: 700px;
+}
+
+.placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+}
