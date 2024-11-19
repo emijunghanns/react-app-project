@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function RecipeCard({ id, name, calories, image, servings, vegan }) {
   return (
-    <Link to={`/details/${id}`}>
-      <button className="RecipeCard">
+    <div className="RecipeCard">
+        <Link to={`/details/${id}`}>
         <img src={image} alt="" />
         <h1>{name}</h1>
         <div className="recipeInfo">
@@ -21,6 +21,7 @@ export default function RecipeCard({ id, name, calories, image, servings, vegan 
             <b> {servings}</b>
           </div>
         </div>
+        </Link>
         <div className="cardBottom">
           {vegan ? (
             <div className="vegan">
@@ -43,10 +44,13 @@ export default function RecipeCard({ id, name, calories, image, servings, vegan 
               Vegan
             </div>
           )}
-
-          <button className="updateRecipe">Update</button>
+          <Link to={`/update/${id}`}>
+            <button className="updateRecipe" onClick={(event) => {
+              event.preventDefault();
+              console.log('clicked')
+            }}>Update</button>
+          </Link>
         </div>
-      </button>
-    </Link>
+      </div>
   );
 }
