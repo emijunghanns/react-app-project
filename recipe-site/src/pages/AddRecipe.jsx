@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import RecipeCard from "../components/RecipeCard";
+import { v4 as uuidv4 } from 'uuid';
 import "./AddRecipe.css";
 
 export default function AddRecipe({ addRecipe }) {
@@ -33,6 +34,7 @@ export default function AddRecipe({ addRecipe }) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const newRecipe = {
+      id: uuidv4(),
       name: recipeTitle,
       calories,
       servings,

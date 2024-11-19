@@ -9,6 +9,7 @@ export default function Homepage({ recipeList }) {
       {recipeList.map((recipe) => (
         <RecipeCard
           key={recipe.id}
+          id={recipe.id}
           name={recipe.name}
           image={recipe.image}
           calories={recipe.calories}

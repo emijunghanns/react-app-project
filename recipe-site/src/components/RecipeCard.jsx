@@ -1,9 +1,9 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 
-export default function RecipeCard({ name, calories, image, servings, vegan }) {
+export default function RecipeCard({ id, name, calories, image, servings, vegan }) {
   return (
-    <Link to="/details">
+    <Link to={`/details/${id}`}>
       <button className="RecipeCard">
         <img src={image} alt="" />
         <h1>{name}</h1>
