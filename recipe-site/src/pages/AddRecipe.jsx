@@ -20,14 +20,24 @@ export default function AddRecipe({ addRecipe }) {
     setPreparationSteps(event.target.value);
   const handleVenganInput = (event) => setPreparationSteps(event.target.value);
 
+  const pasrseDashedList = (inputToParse) => {
+    const unparsedArray = inputToParse.split('-').slice(1);
+    const parsedArray = unparsedArray.map(element => {
+      if(element[0] === ' ') element = element.slice(1);
+      if(element.at(-1) === '\n') element = element.slice(0, -1);
+      return element;
+    })
+    return parsedArray
+  }
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const newRecipe = {
       name: recipeTitle,
       calories,
       servings,
-      preparation_steps,
-      ingredients,
+      preparation_steps: pasrseDashedList(preparation_steps),
+      ingredients: pasrseDashedList(ingredients),
       vegan,
     };
     addRecipe(newRecipe);
@@ -44,8 +54,6 @@ export default function AddRecipe({ addRecipe }) {
     <div className="formBox">
       <form onSubmit={handleFormSubmit}>
         <div className="addRecipe">Add a Recipe</div>
-        <div>
-          <label className="placeholder">
             <input
               name="recipeTitle"
               type="text"
@@ -53,10 +61,6 @@ export default function AddRecipe({ addRecipe }) {
               value={recipeTitle}
               onChange={handleRecipeTitleInput}
             />
-          </label>
-        </div>
-        <div>
-          <label className="placeholder">
             <input
               name="servings"
               type="number"
@@ -65,10 +69,6 @@ export default function AddRecipe({ addRecipe }) {
               value={servings}
               onChange={handleServingsInput}
             />
-          </label>
-        </div>
-        <div>
-          <label>
             <input
               name="calories"
               type="number"
@@ -77,41 +77,32 @@ export default function AddRecipe({ addRecipe }) {
               value={calories}
               onChange={handleCaloriesInput}
             />
-          </label>
-        </div>
 
-        <div>
-          <label>
-            <input
+            <textarea
               name="preparation_steps"
               type="text"
               placeholder="Add your instructions here!"
               value={preparation_steps}
               onChange={handlePreparationStepsInput}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
+            ></textarea>
+            <textarea
               name="ingredients"
               type="text"
               placeholder="Help us with our grocery, include the ingredients!"
               value={ingredients}
               onChange={handleIngredientsInput}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
+            ></textarea>
+
+        <div className="veganInput">
+            <div>
             Is it vengan?
+            </div>
             <input
               name="vegan"
               type="checkbox"
               value={vegan}
               onChange={handleVenganInput}
             />
-          </label>
         </div>
 
         <div>
@@ -125,12 +116,6 @@ export default function AddRecipe({ addRecipe }) {
         recipes.map((recipe) => {
           return <RecipeCard key={recipe} {...recipe} />;
         })}
-
-      <div>
-        <Link to="/">
-          <button className="backButton">Back</button>
-        </Link>
-      </div>
     </div>
   );
 }

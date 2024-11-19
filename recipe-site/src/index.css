@@ -81,9 +81,10 @@ a:visited {
   align-items: center;
   gap: 20px;
   padding-top: 20px;
-  margin-top: 10%;
+  margin-top: 40px;
   margin-bottom: 10%;
-  height: 80%;
+  height: 100%;
+  background-color: #2d88ff;
   border-right: 0.5px solid black;
 }
 
