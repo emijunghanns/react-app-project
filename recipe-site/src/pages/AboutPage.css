@@ -1,0 +1,66 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 36px;
+
+  margin-bottom: 20px;
+}
+
+.bio {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.bio span {
+  font-weight: bold;
+}
+
+.team {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.person {
+  width: 200px;
+  padding: 20px;
+  background-color: #e0f7fa; /* Light blue */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.person img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.person h3 {
+  font-size: 24px;
+}
+
+.person p {
+  font-size: 16px;
+  color: #555;
+}
