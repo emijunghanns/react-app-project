@@ -27,7 +27,10 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Homepage recipeList={recipeList} />} />
-          <Route path="/details" element={<RecipeDetails />} />
+          <Route
+            path="/details/:recipeId"
+            element={<RecipeDetails recipeList={recipeList} />}
+          />
           <Route
             path="/addrecipe"
             element={<AddRecipe addRecipe={addRecipe} />}
