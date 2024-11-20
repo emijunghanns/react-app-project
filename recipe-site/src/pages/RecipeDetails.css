@@ -1,0 +1,74 @@
+
+
+.RecipeDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    padding-top: 20%;
+}
+
+
+.RecipeDetails img {
+    width: 100%;
+}
+
+.RecipeDetails .informations {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.RecipeDetails .informations > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.RecipeDetails .details {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    width: 600px;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: start;
+    font-size: 1.1rem;
+}
+
+.RecipeDetails .details h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.RecipeDetails .details h2 {
+    font-size: 1.25rem;
+    width: 100%;
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.RecipeDetails .details .recipe {
+    margin: 40px;
+    line-height: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 40px;
+}
+
+.RecipeDetails svg {
+    height: 50px;
+}

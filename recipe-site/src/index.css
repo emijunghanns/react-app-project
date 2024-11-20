@@ -139,8 +139,8 @@ a:visited {
   display: flex;
   background-color: inherit;
   border: none;
-  width: 300px;
-  height: 350px;
+  width: 250px;
+  height: 300px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
