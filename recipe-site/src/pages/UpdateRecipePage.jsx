@@ -69,7 +69,7 @@ const unparseDashedList = (listToUnparse) => {
   return (
     <div className="formBox">
       <form onSubmit={handleFormSubmit}>
-        <div className="addRecipe">Add a Recipe</div>
+        <div className="addRecipe">Update a Recipe</div>
             <input
               name="recipeTitle"
               type="text"
