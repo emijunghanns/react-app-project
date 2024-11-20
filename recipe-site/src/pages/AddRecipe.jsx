@@ -107,7 +107,7 @@ export default function AddRecipe({ addRecipe }) {
 
         <div className="veganInput">
             <div>
-            Is it vengan?
+            Is it vegan?
             </div>
             <input
               name="vegan"

@@ -118,7 +118,7 @@ const unparseDashedList = (listToUnparse) => {
 
         <div className="veganInput">
             <div>
-            Is it vengan?
+            Is it vegan?
             </div>
             <input
               name="vegan"

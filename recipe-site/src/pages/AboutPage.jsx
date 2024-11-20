@@ -15,22 +15,16 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div class="team">
-          <div class="person">
+        <div className="team">
+          <div className="person">
             <h3>Emilia, 31</h3>
-            <p>blah blah</p>
           </div>
 
-          <div class="person">
+          <div className="person">
             <h3>Karim, 21</h3>
-            <p>blah blah</p>
           </div>
         </div>
       </div>
-
-      <Link to="/">
-        <button>Back</button>
-      </Link>
     </div>
   );
 }
