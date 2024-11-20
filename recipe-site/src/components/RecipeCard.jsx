@@ -46,7 +46,7 @@ export default function RecipeCard({ id, name, calories, image, servings, vegan 
           )}
           <Link to={`/update/${id}`}>
             <button className="updateRecipe" onClick={(event) => {
-              event.preventDefault();
+              
               console.log('clicked')
             }}>Update</button>
           </Link>

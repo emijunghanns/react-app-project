@@ -1,17 +1,43 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import RecipeCard from "../components/RecipeCard";
-import { v4 as uuidv4 } from 'uuid';
+import { useEffect, useState} from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "./AddRecipe.css";
 
-export default function AddRecipe({ addRecipe }) {
-  const [recipeTitle, setRecipeTitle] = useState("");
-  const [recipeImage, setRecipeImage] = useState("")
-  const [calories, setCalories] = useState("");
-  const [servings, setServings] = useState("");
-  const [ingredients, setIngredients] = useState("");
-  const [preparation_steps, setPreparationSteps] = useState("");
-  const [vegan, setVegan] = useState("");
+export default function UpdateRecipePage({ updateRecipe, recipeList }) {
+    let { recipeId } = useParams();
+    const navigate= useNavigate();
+  const recipeDetails = recipeList.find((recipe) => recipe.id === recipeId);
+//   console.log(recipeId);    
+const pasrseDashedList = (inputToParse) => {
+  const unparsedArray = inputToParse.split('-').slice(1);
+  const parsedArray = unparsedArray.map(element => {
+    if(element[0] === ' ') element = element.slice(1);
+    if(element.at(-1) === '\n') element = element.slice(0, -1);
+    return element;
+  })
+  return parsedArray
+}
+
+const unparseDashedList = (listToUnparse) => {
+  let result = '';
+  for(const element of listToUnparse){
+      result += `- ${element}\n`;
+  }
+  return result;
+} 
+//   console.log(recipeDetails);
+
+  const [recipeTitle, setRecipeTitle] = useState(recipeDetails.name);
+  const [recipeImage, setRecipeImage] = useState(recipeDetails.image)
+  const [calories, setCalories] = useState(recipeDetails.calories);
+  const [servings, setServings] = useState(recipeDetails.servings);
+  const [ingredients, setIngredients] = useState(); 
+  const [preparation_steps, setPreparationSteps] = useState();
+  const [vegan, setVegan] = useState(recipeDetails.vegan);
+
+  useEffect(() => {
+    if(!ingredients) setIngredients(unparseDashedList(recipeDetails.ingredients));
+    if(!preparation_steps) setPreparationSteps(unparseDashedList(recipeDetails.preparation_steps));
+  }, [])
 
   const handleRecipeTitleInput = (event) => setRecipeTitle(event.target.value);
   const handleRecipeImageInput = (event) => setRecipeImage(event.target.value);
@@ -22,20 +48,11 @@ export default function AddRecipe({ addRecipe }) {
     setPreparationSteps(event.target.value);
   const handleVenganInput = () => setVegan(!vegan);
 
-  const pasrseDashedList = (inputToParse) => {
-    const unparsedArray = inputToParse.split('-').slice(1);
-    const parsedArray = unparsedArray.map(element => {
-      if(element[0] === ' ') element = element.slice(1);
-      if(element.at(-1) === '\n') element = element.slice(0, -1);
-      return element;
-    })
-    return parsedArray
-  }
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const newRecipe = {
-      id: uuidv4(),
+      id: recipeId,
       name: recipeTitle,
       image: recipeImage,
       calories,
@@ -44,15 +61,9 @@ export default function AddRecipe({ addRecipe }) {
       ingredients: pasrseDashedList(ingredients),
       vegan,
     };
-    addRecipe(newRecipe);
-
-    setRecipeTitle("");
-    setPreparationSteps("");
-    setCalories("");
-    setServings("");
-    setPreparationSteps("");
-    setIngredients("");
-    setVegan("");
+    updateRecipe(newRecipe);
+    navigate("/");
+    
   };
 
   return (
@@ -120,12 +131,10 @@ export default function AddRecipe({ addRecipe }) {
 
         <div>
           <button className="addRecipeButton" type="submit">
-            Add Recipe
+            Update Recipe
           </button>
         </div>
       </form>
-
-      
     </div>
   );
 }
